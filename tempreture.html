@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+        }
+        h1 {
+            color: #007BFF;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <input type="number" id="celsiusInput" placeholder="Enter temperature in Celsius">
+        <button onclick="convertTemperature()">Convert</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function convertTemperature() {
+            const celsius = parseFloat(document.getElementById("celsiusInput").value);
+            if (!isNaN(celsius)) {
+                const fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById("result").innerHTML = `${celsius}°C is equal to ${fahrenheit}°F`;
+            } else {
+                document.getElementById("result").innerHTML = "Please enter a valid temperature in Celsius.";
+            }
+        }
+    </script>
+</body>
+</html>
